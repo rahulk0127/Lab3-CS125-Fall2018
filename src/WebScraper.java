@@ -21,7 +21,30 @@ public class WebScraper {
         return contents;
     }
 
+    public static int wordCount(final String text, final String word) {
+        int count = 0;
+        String lowerText = text.toLowerCase();
+        String lowerWord = word.toLowerCase();
+        while (lowerText.contains(lowerWord)) {
+            lowerText = lowerText.substring(lowerText.indexOf(lowerWord) + 1);
+            count++;
+        }
+        return count;
+    }
+
+    public static int uniqueWordCount(final String text, final String word) {
+        int count = 0;
+        String remainingText = text;
+        while (remainingText.contains(word)) {
+            remainingText = remainingText.substring(remainingText.indexOf(word) + 1);
+            count++;
+        }
+        return count;
+    }
+
     public static void main(String[] unused) {
         System.out.println(urlToString("http://erdani.com/tdpl/hamlet.txt"));
+        System.out.println("\n" + wordCount(urlToString("http://erdani.com/tdpl/hamlet.txt"), "Prince"));
+        System.out.println("\n" + uniqueWordCount(urlToString("http://erdani.com/tdpl/hamlet.txt"), "Prince"));
     }
 }
