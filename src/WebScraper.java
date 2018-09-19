@@ -22,6 +22,6 @@ public class WebScraper {
     }
 
     public static void main(String[] unused) {
-        System.out.println("http://erdani.com/tdpl/hamlet.txt");
+        System.out.println(urlToString("http://erdani.com/tdpl/hamlet.txt"));
     }
 }
